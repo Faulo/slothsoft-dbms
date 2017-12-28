@@ -1,0 +1,11 @@
+vendor/
+composer.lock
+.DS_Store
+
+#useless everywhere
+unused/
+temp/
+*Kopie*
+Thumbs.db
+
+#resources
