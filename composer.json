@@ -6,7 +6,7 @@
     "authors": [
         {
             "name": "Daniel Schulz",
-            "email": "daniel.lio.schulz@gmail.com"
+            "email": "info.slothsoft@gmail.com"
         }
     ],
     "type": "library",
@@ -14,13 +14,10 @@
 		"php": ">=7.0"
     },
 	"require-dev": {
-		"phpunit/phpunit": "5.2.*"
     },
 	"autoload": {
         "psr-4": {
             "Slothsoft\\DBMS\\": "php/"
         }
     },
-	"repositories": [
-    ]
 }
