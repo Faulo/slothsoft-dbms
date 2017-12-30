@@ -1,4 +1,4 @@
-Files and Resources and Hypertext
-=================================
+Database Management System
+==========================
 
-A Farah module.
+A Farah module that handles the database stuff.
