@@ -2,7 +2,6 @@
 namespace Slothsoft\DBMS;
 
 use mysqli;
-use Exception;
 
 class Client
 {
@@ -388,7 +387,7 @@ class Client
                 $err[] = $arr['Msg_text'];
             }
         }
-        throw new Exception(implode(PHP_EOL, $err));
+        throw new DatabaseException(implode(PHP_EOL, $err));
     }
 
     public function resetCharset($dbName, $tableName = null)
@@ -499,6 +498,6 @@ class Client
         } else {
             $err .= 'ERROR while mysqling!' . PHP_EOL;
         }
-        throw new Exception($err);
+        throw new DatabaseException($err);
     }
 }
