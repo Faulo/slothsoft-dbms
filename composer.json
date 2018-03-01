@@ -16,7 +16,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Slothsoft\\DBMS\\" : "php/"
+			"Slothsoft\\DBMS\\": "src/Slothsoft/DBMS/"
 		}
 	}
 }
