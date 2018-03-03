@@ -1,1 +1,23 @@
-{"name":"slothsoft\/dbms","description":"A Farah module that handles the database stuff.","license":"WTFPL","authors":[{"name":"Daniel Schulz","email":"info.slothsoft@gmail.com"}],"type":"library","require":{"php":">=7.0"},"require-dev":{"phpunit\/phpunit":">=6.0"},"autoload":{"psr-4":{"Slothsoft\\DBMS\\":"src\/Slothsoft\/DBMS\/"}}}
+{
+    "name": "slothsoft\/dbms",
+    "description": "A Farah module that handles the database stuff.",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Daniel Schulz",
+            "email": "info.slothsoft@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit\/phpunit": ">=6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slothsoft\\DBMS\\": "src\/Slothsoft\/DBMS\/"
+        }
+    }
+}
