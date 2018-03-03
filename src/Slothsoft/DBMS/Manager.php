@@ -28,7 +28,7 @@ class Manager
         $dbName = mb_strtolower(trim($dbName));
         if (! isset(self::$databaseList[$dbName])) {
             
-                self::_createLog(sprintf('Manager: creating Database %s...', $dbName));
+            self::_createLog(sprintf('Manager: creating Database %s...', $dbName));
             
             self::$databaseList[$dbName] = new Database(self::getClient(), $dbName);
         }
@@ -44,7 +44,7 @@ class Manager
         }
         if (! isset(self::$tableList[$dbName][$tableName])) {
             
-                self::_createLog(sprintf('Manager: creating Table %s.%s...', $dbName, $tableName));
+            self::_createLog(sprintf('Manager: creating Table %s.%s...', $dbName, $tableName));
             
             self::$tableList[$dbName][$tableName] = new Table(self::getDatabase($dbName), $tableName);
         }

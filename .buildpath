@@ -4,7 +4,7 @@
 	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/DS"/>
 	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/pthreads"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
-	<buildpathentry kind="src" path="src/Slothsoft/DBMS">
+	<buildpathentry kind="src" path="src">
 		<attributes>
 			<attribute name="composer" value="source"/>
 		</attributes>
