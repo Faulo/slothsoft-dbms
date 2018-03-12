@@ -88,7 +88,7 @@ class Manager
             if (strlen($sql) > self::LOG_LINELENGTH) {
                 $sql = substr($sql, 0, self::LOG_LINELENGTH) . '...';
             }
-            $log = sprintf('[%s] %s%s', date(DATE_DATETIME), $sql, PHP_EOL);
+            $log = sprintf('[%s] %s%s', date(DateTimeFormatter::FORMAT_DATETIME), $sql, PHP_EOL);
             if ($handle = fopen(self::LOG_PATH, 'ab')) {
                 fwrite($handle, $log);
                 fclose($handle);
