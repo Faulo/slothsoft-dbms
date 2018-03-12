@@ -1,11 +1,9 @@
-vendor/
-composer.lock
-.DS_Store
-
-#useless everywhere
-unused/
+/composer.phar
+/composer.lock
+/vendor/
+tmp/
 temp/
+unused/
 *Kopie*
 Thumbs.db
-
-#resources
+.DS_Store
