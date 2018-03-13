@@ -5,7 +5,14 @@ use mysqli;
 
 class Client
 {
-
+    private static $defaultAuthority;
+    public static function setDefaultAuthority(Authority $defaultAuthority) {
+        self::$defaultAuthority = $defaultAuthority;
+    }
+    public static function getDefaultAuthority() : Authority {
+        return self::$defaultAuthority;
+    }
+    
     const CONNECTION_SERVER = 'localhost';
 
     const CONNECTION_CHARSET = 'utf8mb4';
@@ -23,7 +30,8 @@ class Client
 
     public function reconnect()
     {
-        @$this->sqli = new mysqli(self::CONNECTION_SERVER);
+        $authority = self::getDefaultAuthority();
+        @$this->sqli = new mysqli($authority->server, $authority->user, $authority->password);
         if ($this->sqli->connect_error) {
             $this->error();
             return false;

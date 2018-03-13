@@ -5,6 +5,13 @@ use Slothsoft\Core\Calendar\DateTimeFormatter;
 
 class Manager
 {
+    private static $logEnabled = false;
+    public static function setLogEnabled(bool $logEnabled) {
+        self::$logEnabled = $logEnabled;
+    }
+    public static function getLogEnabled() : bool {
+        return self::$logEnabled;
+    }
 
     const LOG_PATH = SERVER_ROOT . DIR_LOG . 'manager.log';
 
@@ -86,7 +93,7 @@ class Manager
 
     public static function _createLog($sql)
     {
-        if (DBMS_MANAGER_LOG_ENABLED) {
+        if (self::getLogEnabled()) {
             if (strlen($sql) > self::LOG_LINELENGTH) {
                 $sql = substr($sql, 0, self::LOG_LINELENGTH) . '...';
             }
