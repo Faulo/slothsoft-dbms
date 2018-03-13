@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Slothsoft\DBMS;
 
 use Slothsoft\Core\Calendar\DateTimeFormatter;
