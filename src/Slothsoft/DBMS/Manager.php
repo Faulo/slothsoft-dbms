@@ -3,17 +3,39 @@ namespace Slothsoft\DBMS;
 
 use Slothsoft\Core\Calendar\DateTimeFormatter;
 
+use Slothsoft\Core\Configuration\ConfigurationField;
+use Slothsoft\Core\Configuration\DirectoryConfigurationField;
+use Slothsoft\Core\ServerEnvironment;
+
 class Manager
 {
-    private static $logEnabled = false;
-    public static function setLogEnabled(bool $logEnabled) {
-        self::$logEnabled = $logEnabled;
+    private static function logEnabled() : ConfigurationField {
+        static $field;
+        if ($field === null) {
+            $field = new ConfigurationField(false);
+        }
+        return $field;
+    }
+    public static function setLogEnabled(bool $value) {
+        self::logEnabled()->setValue($value);
     }
     public static function getLogEnabled() : bool {
-        return self::$logEnabled;
+        return self::logEnabled()->getValue();
     }
-
-    const LOG_PATH = SERVER_ROOT . DIR_LOG . 'manager.log';
+    
+    private static function logDirectory() : ConfigurationField {
+        static $field;
+        if ($field === null) {
+            $field = new DirectoryConfigurationField(ServerEnvironment::getLogDirectory() . 'dbms');
+        }
+        return $field;
+    }
+    public static function setLogDirectory(string $directory) {
+        self::logDirectory()->setValue($directory);
+    }
+    public static function getLogDirectory() : string {
+        return self::logDirectory()->getValue();
+    }
 
     const LOG_LINELENGTH = 120;
 
@@ -98,7 +120,7 @@ class Manager
                 $sql = substr($sql, 0, self::LOG_LINELENGTH) . '...';
             }
             $log = sprintf('[%s] %s%s', date(DateTimeFormatter::FORMAT_DATETIME), $sql, PHP_EOL);
-            if ($handle = fopen(self::LOG_PATH, 'ab')) {
+            if ($handle = fopen(self::getLogDirectory(), 'ab')) {
                 fwrite($handle, $log);
                 fclose($handle);
             }

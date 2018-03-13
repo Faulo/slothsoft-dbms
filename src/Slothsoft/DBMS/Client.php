@@ -2,15 +2,22 @@
 namespace Slothsoft\DBMS;
 
 use mysqli;
+use Slothsoft\Core\Configuration\ConfigurationField;
 
 class Client
 {
-    private static $defaultAuthority;
-    public static function setDefaultAuthority(Authority $defaultAuthority) {
-        self::$defaultAuthority = $defaultAuthority;
+    private static function defaultAuthority() : ConfigurationField {
+        static $field;
+        if ($field === null) {
+            $field = new ConfigurationField();
+        }
+        return $field;
+    }
+    public static function setDefaultAuthority(Authority $authority) {
+        self::defaultAuthority()->setValue($authority);
     }
     public static function getDefaultAuthority() : Authority {
-        return self::$defaultAuthority;
+        return self::defaultAuthority()->getValue();
     }
     
     const CONNECTION_SERVER = 'localhost';
