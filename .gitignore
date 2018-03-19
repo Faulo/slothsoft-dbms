@@ -7,3 +7,6 @@ unused/
 *Kopie*
 Thumbs.db
 .DS_Store
+/data/
+/cache/
+/log/
