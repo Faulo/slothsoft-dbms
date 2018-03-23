@@ -4,6 +4,7 @@ namespace Slothsoft\DBMS;
 
 use mysqli;
 use Slothsoft\Core\Configuration\ConfigurationField;
+use Slothsoft\Core\Configuration\ConfigurationRequiredException;
 
 class Client
 {
@@ -38,7 +39,11 @@ class Client
 
     public function reconnect()
     {
-        $authority = self::getDefaultAuthority();
+        try {
+            $authority = self::getDefaultAuthority();
+        } catch(ConfigurationRequiredException $e) {
+            throw new DatabaseException('Database configuration has not been set!', 0, $e);
+        }
         @$this->sqli = new mysqli($authority->server, $authority->user, $authority->password);
         if ($this->sqli->connect_error) {
             $this->error();
