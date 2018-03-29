@@ -184,11 +184,6 @@
 			<attribute name="composer" value="vendor"/>
 		</attributes>
 	</buildpathentry>
-	<buildpathentry kind="src" path="vendor/slothsoft/pt/src">
-		<attributes>
-			<attribute name="composer" value="vendor"/>
-		</attributes>
-	</buildpathentry>
 	<buildpathentry kind="src" path="vendor/slothsoft/w3c/src">
 		<attributes>
 			<attribute name="composer" value="vendor"/>
